@@ -5,8 +5,6 @@ import { UsersService } from './users.service';
 
 
 //Resovler e o mesmo que o controller
-
-
 @Resolver()
 export class UsersResolver {
 
