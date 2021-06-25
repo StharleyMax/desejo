@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { UpdateResult } from 'typeorm';
 import { ClientsResolver } from '../clients.resolver';
 import { Clients } from '../interfaces/clients.interface';
 
@@ -16,5 +17,10 @@ export class ClientsController {
   @Post()
   createDesejo(@Body() post: Clients):Promise<Clients>{
     return this.clientsService.createDesejo(post);
+  }
+
+  @Put(':id')
+  updateDesejo(@Param('id')id:number, @Body() update: Clients):Promise<UpdateResult>{
+      return this.clientsService.updateDesejo(id,update);
   }
 }
