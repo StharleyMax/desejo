@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ClientsResolver } from '../clients.resolver';
 import { Clients } from '../interfaces/clients.interface';
 
@@ -10,5 +10,11 @@ export class ClientsController {
   @Get()
   findAll(): Promise<Clients[]>{
     return this.clientsService.findAll();
+  }
+
+  //Save Desejo do Cliente.
+  @Post()
+  createDesejo(@Body() post: Clients):Promise<Clients>{
+    return this.clientsService.createDesejo(post);
   }
 }

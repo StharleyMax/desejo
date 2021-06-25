@@ -13,4 +13,9 @@ export class ClientsResolver {
   findAll(): Promise<Clients[]>{
     return this.clientsRepository.find();
   }
+
+  async createDesejo(clients: Clients):Promise<ClientsEntitys>{
+    return await this.clientsRepository.save(clients);
+  }
+
 }
