@@ -1,6 +1,6 @@
 import { Resolver } from '@nestjs/graphql';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, UpdateResult } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { ClientsEntitys } from './entitys/clients.entity';
 import { Clients } from './interfaces/clients.interface';
 
@@ -20,5 +20,10 @@ export class ClientsResolver {
 
   async updateDesejo(id:number, desejo: Clients): Promise<UpdateResult>{
       return await this.clientsRepository.update(id, desejo);
+  }
+
+
+  async deleteDesejo(id: number): Promise<DeleteResult>{
+    return await this.clientsRepository.delete(id);
   }
 }
