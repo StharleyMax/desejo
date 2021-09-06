@@ -7,24 +7,24 @@ export class User{
   idUser: number
 
   @Column()
-  nome: string;
+  name: string;
 
   @Column()
-  telefone: string;
+  telephone: string;
 
   @Column()
-  cidade: string;
+  city: string;
 
   @Column()
-  estado: string;
+  state: string;
 
   @Column()
-  cep: string;
+  zipCode: string;
 
   @Column()
-  usuario: string;
+  user: string;
 
   @Column()
-  senha: string;
+  password: string;
 
 }

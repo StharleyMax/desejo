@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 
-export class CreateUserDto{
+export class UserAllDto{
 
   @ApiProperty({description:'idUser', type: Number ,example:1})
   idUser: number;
@@ -9,20 +9,20 @@ export class CreateUserDto{
   nameUser: string;
 
   @ApiProperty({description:'Telefone Celular', type: String , example:'+55 00 00000-0000'})
-  telefone: string;
+  telephone: string;
 
   @ApiProperty({description:'Cidade', type: String , example:'Brasilia'})
-  cidade: string;
+  city: string;
 
   @ApiProperty({description:'Estado',type: String , example:'DF'})
-  estado: string;
+  state: string;
 
   @ApiProperty({description:'CEP', type: String , example:'00000-000'})
-  cep: string;
+  zipCode: string;
 
   @ApiProperty({description:'Usuário',type: String ,example:'usuario.usuario'})
-  usuario: string;
+  user: string;
 
   @ApiProperty({description:'Senha', type: String ,example:'1@325$5'})
-  senha: string;
+  password: string;
 }
