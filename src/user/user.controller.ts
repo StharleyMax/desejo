@@ -1,6 +1,6 @@
-import { Controller, Get } from "@nestjs/common";
+import { Body, Controller, Get, HttpStatus, Post } from "@nestjs/common";
 import { UserService } from "./user.service";
-import { UserAllDto } from "./dto/user.dto";
+import { UserAllDto, CreateUserDto } from "./dto/user.dto";
 
 
 
@@ -10,6 +10,16 @@ export class UserController{
 
    @Get()
    async userAll(){
-  return this.userService.userAll();
+   return this.userService.userAll();
+   }
+
+   @Post()
+   async createUser(@Body() createUserDto: CreateUserDto){
+     const create = await this.userService.createUser(createUserDto);
+     return {
+       statusCode: HttpStatus.OK,
+       message: 'Usuário criado com sucesso!',
+       create: createUserDto
+     };
    }
 }
