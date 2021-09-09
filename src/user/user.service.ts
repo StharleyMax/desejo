@@ -20,15 +20,13 @@ export class UserService{
     }
 
     async createUser(createUserDto: CreateUserDto):Promise<CreateUserDto[]>{
-      const createUser = this.userRepository.save({
-        name: createUserDto.name,
-        telephone: createUserDto.telephone,
-        city: createUserDto.city,
-        state: createUserDto.state,
-        zipCode: createUserDto.zipCode,
-        user: createUserDto.user,
-        password: createUserDto.password,
-      });
+      const createUser = this.userRepository.save(createUserDto);
       return null;
+    }
+
+    async findUserId(id: number):Promise<CreateUserDto>{
+        return  this.userRepository.findOne({
+          idUser: id
+        });
     }
 }
