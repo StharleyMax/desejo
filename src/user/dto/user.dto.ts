@@ -20,6 +20,9 @@ export class UserAllDto{
   @ApiProperty({description:'CEP', type: String , example:'00000-000'})
   zipCode: string;
 
+  @ApiProperty({description:'Actived', type: Boolean, example:true})
+  actived: boolean;
+
   @ApiProperty({description:'Usuário',type: String ,example:'usuario.usuario'})
   user: string;
 
@@ -43,6 +46,9 @@ export class CreateUserDto{
 
   @ApiProperty({description:'CEP', type: String , example:'00000-000'})
   zipCode: string;
+
+  @ApiProperty({description:'Actived', type: Boolean, example:true})
+  actived: boolean;
 
   @ApiProperty({description:'Usuário',type: String ,example:'usuario.usuario'})
   user: string;

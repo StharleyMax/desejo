@@ -22,6 +22,9 @@ export class User{
   zipCode: string;
 
   @Column()
+  actived: boolean;
+
+  @Column()
   user: string;
 
   @Column()

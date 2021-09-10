@@ -26,7 +26,7 @@ export class UserService{
 
     async findUserId(id: number):Promise<CreateUserDto>{
         return  this.userRepository.findOne({
-          idUser: id
+         where:{idUser: id, actived: true}
         });
     }
 }

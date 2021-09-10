@@ -7,5 +7,6 @@ create table desejo.tb_user(
   state varchar(4),
   zipCode varchar(20),
   user varchar(25),
+  actived boolean,
   password varchar(50)
 )
