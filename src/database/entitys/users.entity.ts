@@ -1,33 +1,33 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('tb_user')
-export class User{
+export class User {
 
-  @PrimaryGeneratedColumn()
-  idUser: number
+  @PrimaryGeneratedColumn({ name: 'idUser' })
+  id: number
 
-  @Column()
+  @Column({ name: 'name' })
   name: string;
 
-  @Column()
+  @Column({ name: 'telephone' })
   telephone: string;
 
-  @Column()
+  @Column({ name: 'city' })
   city: string;
 
-  @Column()
+  @Column({ name: 'state' })
   state: string;
 
-  @Column()
+  @Column({ name: 'zipCode' })
   zipCode: string;
 
-  @Column()
+  @Column({ name: 'actived' })
   actived: boolean;
 
-  @Column()
+  @Column({ name: 'user' })
   user: string;
 
-  @Column()
+  @Column({ name: 'password' })
   password: string;
 
 }
