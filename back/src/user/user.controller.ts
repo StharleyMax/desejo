@@ -1,14 +1,21 @@
-import { Body, Controller, Delete, Get, HttpStatus, Param, Post } from "@nestjs/common";
-import { UserService } from "./user.service";
-import { UserAllDto } from "./dto/user.dto";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpStatus,
+  Param,
+  Post,
+} from '@nestjs/common';
+
+import { CreateUserDto } from './dto/createUser.dto';
 import { DeleteUserDto } from './dto/deleteUser.dto';
-import { CreateUserDto } from "./dto/createUser.dto";
-
-
+import { UserAllDto } from './dto/user.dto';
+import { UserService } from './user.service';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) { }
+  constructor(private readonly userService: UserService) {}
 
   @Get()
   async userAll() {
@@ -21,7 +28,7 @@ export class UserController {
     return {
       user,
       messege: 'Usuaário encontrado',
-    }
+    };
   }
 
   @Post()
@@ -30,7 +37,7 @@ export class UserController {
     return {
       statusCode: HttpStatus.OK,
       message: 'Usuário criado com sucesso!',
-      create: createUserDto
+      create: createUserDto,
     };
   }
 

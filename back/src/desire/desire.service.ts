@@ -1,4 +1,1 @@
-
-
-
-export class DesireService{}
+export class DesireService {}
