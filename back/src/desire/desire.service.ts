@@ -24,7 +24,7 @@ export class DesireService {
 
   async create(createDesireDto: CreateDesireDto): Promise<Desire> {
     const { desire, user, title } = createDesireDto;
-    return await this.desireRepository.save({
+    return this.desireRepository.save({
       desire,
       user,
       title,
