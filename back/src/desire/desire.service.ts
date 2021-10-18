@@ -9,7 +9,7 @@ export class DesireService {
   constructor(
     @InjectRepository(Desire)
     private readonly desireRepository: Repository<Desire>,
-  ) {}
+  ) { }
 
   async findAll(): Promise<Desire[]> {
     return this.desireRepository.find({ relations: ['user'] });
@@ -24,12 +24,10 @@ export class DesireService {
 
   async create(createDesireDto: CreateDesireDto): Promise<Desire> {
     const { desire, user, title } = createDesireDto;
-    const createDesire = await this.desireRepository.save({
+    return await this.desireRepository.save({
       desire,
       user,
       title,
     });
-
-    return createDesire;
   }
 }
