@@ -1,10 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('tb_user')
 export class User {
-
   @PrimaryGeneratedColumn({ name: 'idUser' })
-  id: number
+  id: number;
 
   @Column({ name: 'name' })
   name: string;
@@ -29,5 +28,4 @@ export class User {
 
   @Column({ name: 'password' })
   password: string;
-
 }

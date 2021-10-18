@@ -1,20 +1,20 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
-import { Repository } from "typeorm";
-import { UserAllDto } from "./dto/user.dto";
-import { CreateUserDto } from "./dto/createUser.dto";
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+
+import { Repository } from 'typeorm';
+
+import { User } from '../database/entities/users.entity';
+import { UserRepository } from '../database/repository/user.repository';
+import { CreateUserDto } from './dto/createUser.dto';
 import { DeleteUserDto } from './dto/deleteUser.dto';
-import { InjectRepository } from "@nestjs/typeorm";
-import { UserRepository } from "../database/repository/user.repository";
-import { User } from "../database/entitys/users.entity";
+import { UserAllDto } from './dto/user.dto';
 
 @Injectable()
 export class UserService {
-
-
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
-  ) { }
+  ) {}
 
   async userAll(): Promise<User[]> {
     return this.userRepository.find({ where: { actived: true } });
@@ -36,7 +36,7 @@ export class UserService {
 
   async findUserId(id: number): Promise<CreateUserDto> {
     const user = await this.userRepository.findOne({
-      where: { id: id, actived: true }
+      where: { id: id, actived: true },
     });
 
     if (!user) throw new NotFoundException('Usuário não encontrado!');
@@ -45,7 +45,9 @@ export class UserService {
   }
 
   async deleteUser(id: number): Promise<DeleteUserDto | undefined> {
-    const user = await this.userRepository.findOne({ where: { id: id, actived: true } });
+    const user = await this.userRepository.findOne({
+      where: { id: id, actived: true },
+    });
 
     if (!user) throw new NotFoundException('Usuário já encontra-se desativado');
 
@@ -53,7 +55,6 @@ export class UserService {
 
     await this.userRepository.save(user);
 
-    return { result: true }
+    return { result: true };
   }
 }
-
