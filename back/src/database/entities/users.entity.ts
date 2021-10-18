@@ -1,31 +1,36 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+
+import { Desire } from './desire.entity';
 
 @Entity('tb_user')
 export class User {
-  @PrimaryGeneratedColumn({ name: 'idUser' })
+  @PrimaryGeneratedColumn('increment', { name: 'idUser' })
   id: number;
 
-  @Column({ name: 'name' })
+  @OneToMany(() => Desire, (desire) => desire.user)
+  desire: Desire[];
+
+  @Column()
   name: string;
 
-  @Column({ name: 'telephone' })
+  @Column()
   telephone: string;
 
-  @Column({ name: 'city' })
+  @Column()
   city: string;
 
-  @Column({ name: 'state' })
+  @Column()
   state: string;
 
-  @Column({ name: 'zipCode' })
+  @Column()
   zipCode: string;
 
-  @Column({ name: 'actived' })
+  @Column()
   actived: boolean;
 
-  @Column({ name: 'user' })
+  @Column()
   user: string;
 
-  @Column({ name: 'password' })
+  @Column()
   password: string;
 }
