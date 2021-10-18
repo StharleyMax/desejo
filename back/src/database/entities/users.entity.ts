@@ -4,7 +4,7 @@ import { Desire } from './desire.entity';
 
 @Entity('tb_user')
 export class User {
-  @PrimaryGeneratedColumn('increment', { name: 'idUser' })
+  @PrimaryGeneratedColumn({ name: 'idUser' })
   id: number;
 
   @OneToMany(() => Desire, (desire) => desire.user)
