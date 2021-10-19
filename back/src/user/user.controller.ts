@@ -10,7 +10,6 @@ import {
 
 import { CreateUserDto } from './dto/createUser.dto';
 import { DeleteUserDto } from './dto/deleteUser.dto';
-import { UserAllDto } from './dto/user.dto';
 import { UserService } from './user.service';
 
 @Controller('user')
@@ -33,7 +32,7 @@ export class UserController {
 
   @Post()
   async createUser(@Body() createUserDto: CreateUserDto) {
-    const create = await this.userService.createUser(createUserDto);
+    await this.userService.createUser(createUserDto);
     return {
       statusCode: HttpStatus.OK,
       message: 'Usuário criado com sucesso!',

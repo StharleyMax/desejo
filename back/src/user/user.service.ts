@@ -29,7 +29,7 @@ export class UserService {
 
     if (userExist) throw new BadRequestException('Userário já cadastrado');
 
-    const createUser = this.userRepository.save({
+    return this.userRepository.save({
       name: createUserDto.name,
       telephone: createUserDto.telephone,
       city: createUserDto.city,
@@ -39,8 +39,6 @@ export class UserService {
       actived: true,
       password: createUserDto.password,
     });
-
-    return createUser;
   }
 
   async findUserId(id: number): Promise<CreateUserDto> {
