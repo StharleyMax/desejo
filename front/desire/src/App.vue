@@ -3,14 +3,14 @@
     <div>User Component</div>
     <ul>
       <li v-for="user in users" :key="user.name">
-        {{user}}
+        {{ user }}
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import api from "./api";
+import api from "./server/api";
 
 export default {
   name: "App",
@@ -32,6 +32,9 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    postUser() {
+      api.post("/algumacoisa").then((resquest) => {});
     },
   },
 };
