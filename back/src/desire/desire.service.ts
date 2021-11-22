@@ -23,10 +23,10 @@ export class DesireService {
   }
 
   async create(createDesireDto: CreateDesireDto): Promise<Desire> {
-    const { desire, user, title } = createDesireDto;
+    const { desire, idUser, title } = createDesireDto;
     return this.desireRepository.save({
       desire,
-      user,
+      idUser,
       title,
     });
   }
